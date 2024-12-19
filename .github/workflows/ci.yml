@@ -3,20 +3,25 @@ name: Rails CI
 on:
   push:
     branches:
-      - master  # This triggers the workflow when changes are pushed to the master branch
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # This job will run on an Ubuntu environment
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2  # This checks out the code from GitHub
+      - name: Check out code
+        uses: actions/checkout@v2
+
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1  # This sets up Ruby for the job
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0 
+
       - name: Install dependencies
         run: |
           gem install bundler
-          bundle install  # This installs the necessary gems for the application
+          bundle install
+
       - name: Run tests
-        run: |
-          bundle exec rspec  # This runs the RSpec tests
+        run: bundle exec rspec
