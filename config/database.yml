@@ -1,0 +1,25 @@
+# config/database.yml
+
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: Hamada1985@
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: stockflow_development
+
+test:
+  <<: *default
+  database: stockflow_test
+  username: postgres
+  password: Hamada1985@
+
+production:
+  <<: *default
+  database: stockflow_production
+  username: <%= ENV['STOCKFLOW_DATABASE_USER'] %>
+  password: <%= ENV['STOCKFLOW_DATABASE_PASSWORD'] %>

@@ -1,0 +1,6 @@
+one:
+  email: user1@mail.com
+  password: password123  # 
+  password_confirmation: password123
+  first_name: Ahmad
+  last_name: Bourhan
