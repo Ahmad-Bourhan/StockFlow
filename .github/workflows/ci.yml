@@ -3,7 +3,7 @@ name: Rails CI
 on:
   push:
     branches:
-      - master  # هنا تم تغيير 'main' إلى 'master'
+      - master  
 
 jobs:
   test:
