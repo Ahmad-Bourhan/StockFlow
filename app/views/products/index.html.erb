@@ -1,16 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
 <% content_for :title, "Products" %>
 
-<h1>Products</h1>
+<h1 class="text-center my-4">Products</h1>
 
-<div id="products">
+<div id="products" class="row">
   <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= render product %>
+        <div class="card-body">
+          <p>
+            <%= link_to "Show this product", product, class: "btn btn-info" %>
+          </p>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+<div class="text-center my-4">
+  <%= link_to "New product", new_product_path, class: "btn btn-primary" %>
+</div>
